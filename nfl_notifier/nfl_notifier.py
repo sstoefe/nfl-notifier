@@ -1,6 +1,7 @@
 import logging
 import requests
 import toml
+import locale
 
 from bs4 import BeautifulSoup, Tag
 from datetime import datetime, timedelta
@@ -113,6 +114,8 @@ def main():
         )
     else:
         logging_path = Path("nfl-notifier")
+
+    locale.setlocale(locale.LC_TIME, "de_DE.UTF-8")
 
     logging.basicConfig(
         filename=logging_path,
